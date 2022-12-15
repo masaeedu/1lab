@@ -247,8 +247,20 @@ separate top-level definitions:
   π₁∘⟨⟩ : {f : Hom a b} {g : Hom a c} → π₁ ∘ ⟨ f , g ⟩ ≡ f
   π₁∘⟨⟩ = hasprods _ _ .has-is-product .is-product.π₁∘factor
 
+  by-π₁ : ∀ {f f' : Hom a b} {g g' : Hom a c} → ⟨ f , g ⟩ ≡ ⟨ f' , g' ⟩ → f ≡ f'
+  by-π₁ p = sym π₁∘⟨⟩ ∙ ap (π₁ ∘_) p ∙ π₁∘⟨⟩
+
+  extend-π₁ : ∀ {f : Hom a b} {g : Hom a c} {h} → ⟨ f , g ⟩ ≡ h → f ≡ π₁ ∘ h
+  extend-π₁ p = sym π₁∘⟨⟩ ∙ ap (π₁ ∘_) p
+
   π₂∘⟨⟩ : {f : Hom a b} {g : Hom a c} → π₂ ∘ ⟨ f , g ⟩ ≡ g
   π₂∘⟨⟩ = hasprods _ _ .has-is-product .is-product.π₂∘factor
+
+  by-π₂ : ∀ {f f' : Hom a b} {g g' : Hom a c} → ⟨ f , g ⟩ ≡ ⟨ f' , g' ⟩ → g ≡ g'
+  by-π₂ p = sym π₂∘⟨⟩ ∙ ap (π₂ ∘_) p ∙ π₂∘⟨⟩
+
+  extend-π₂ : ∀ {f : Hom a b} {g : Hom a c} {h} → ⟨ f , g ⟩ ≡ h → g ≡ π₂ ∘ h
+  extend-π₂ p = sym π₂∘⟨⟩ ∙ ap (π₂ ∘_) p
 
   ⟨⟩∘ : ∀ {Q R} {p1 : Hom Q a} {p2 : Hom Q b} (f : Hom R Q)
       → ⟨ p1 , p2 ⟩ ∘ f ≡ ⟨ p1 ∘ f , p2 ∘ f ⟩

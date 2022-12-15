@@ -54,3 +54,4 @@
 \Rel:\ht{Rel}
 \liesover:\mathrel{\htmlClass{liesover}{\hspace{1.366em}}}
 \ortho:\mathrel{\bot}
+\rel:\mathrel{\looparrowright}
